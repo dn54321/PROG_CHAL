@@ -1,4 +1,4 @@
-// https://codeforces.com/problemset/problem/1196/A
+// https://codeforces.com/problemset/problem/1374/C
 // SOLUTION BY DN54321
 
 #include <iostream>
@@ -20,16 +20,20 @@ using namespace std;
 
 
 int main() {
-	ll t, mn, x;
-	vector<ll> v(3);
-	scanf("%I64d", &t);
+	int t;
+	vector<int> ct(3);
+	scanf("%d", &t);
 	while (t--) {
-		scanf("%I64d%I64d%I64d", &v[0], &v[1], &v[2]);
-		sort(v.begin(), v.end());
-		x = v[1] - v[0];
-		x = v[1] + ((v[2] - x) >> 1);
-		printf("%I64d\n", x);
+		char s[55];
+		int ct = 0, res=0, n;
+		scanf("%d %s", &n, s);
+		for (int i = 0; i < n; ++i) {
+			if (s[i] == '(') ++ct;
+			else if (s[i] == ')' && ct > 0) --ct;
+			else ++res;
+		}
+		printf("%d\n", res);
+		
 	}
-
 	return 0;
 }
